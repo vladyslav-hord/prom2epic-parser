@@ -1,0 +1,878 @@
+{
+  "Мощность": {
+    "translation": "Потужність",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:22.623877"
+  },
+  "Состояние": {
+    "translation": "Стан",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:22.823628"
+  },
+  "Набор переходников": {
+    "translation": "Набір перехідників",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:23.129828"
+  },
+  "Тип аккумулятора": {
+    "translation": "Тип акумулятора",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:23.349117"
+  },
+  "Цвет корпуса": {
+    "translation": "Колір корпусу",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:23.449974"
+  },
+  "Разъемы": {
+    "translation": "Роз'єми",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:24.116065"
+  },
+  "Выходное напряжение": {
+    "translation": "Вихідна напруга",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:24.459788"
+  },
+  "Входное напряжение": {
+    "translation": "Вхідна напруга",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:24.869160"
+  },
+  "Выходной ток": {
+    "translation": "Вихідний струм",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:25.306701"
+  },
+  "Особенности": {
+    "translation": "Особливості",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:25.408434"
+  },
+  "Материал корпуса": {
+    "translation": "Матеріал корпусу",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:25.966461"
+  },
+  "Емкость аккумулятора": {
+    "translation": "Ємність акумулятора",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:26.411475"
+  },
+  "Выходная мощность": {
+    "translation": "Вихідна потужність",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:42:06.457324"
+  },
+  "Быстрая зарядка": {
+    "translation": "Швидка зарядка",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:42:07.191865"
+  },
+  "Тип зарядного устройства": {
+    "translation": "Тип зарядного пристрою",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:17.140920"
+  },
+  "Напряжение зарядки": {
+    "translation": "Напруга заряджання",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:17.573443"
+  },
+  "Номинальная мощность": {
+    "translation": "Номінальна потужність",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:17.666488"
+  },
+  "Количество заряжаемых аккумуляторов": {
+    "translation": "Кількість акумуляторів, що заряджаються",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:18.030031"
+  },
+  "Наличие вольтметра": {
+    "translation": "Наявність вольтметра",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:18.373514"
+  },
+  "Ручка для переноса": {
+    "translation": "Ручка для перенесення",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:18.466131"
+  },
+  "Индикатор заряда элементов питания": {
+    "translation": "Індикатор заряду елементів живлення",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:18.568191"
+  },
+  "Дополнительные функции": {
+    "translation": "Додаткові функції",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:18.656318"
+  },
+  "Подключение устройства": {
+    "translation": "Підключення пристрою",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:19.108381"
+  },
+  "Тип часов": {
+    "translation": "Тип годинника",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:19.742680"
+  },
+  "Количество панелей": {
+    "translation": "Кількість панелей",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:20.759206"
+  },
+  "Количество USB-портов": {
+    "translation": "Кількість USB-портів",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:22.223596"
+  },
+  "Сила выходного тока": {
+    "translation": "Сила вихідного струму",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:22.654544"
+  },
+  "Выходное напряжение (output)": {
+    "translation": "Вихідна напруга (output)",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:23.187845"
+  },
+  "Функция беспроводной зарядки": {
+    "translation": "Функція бездротової зарядки",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T16:01:23.530495"
+  },
+  "Дополнительно": {
+    "translation": "Додатково",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:05:05.387454"
+  },
+  "Особенность": {
+    "translation": "Особливість",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:05:05.834643"
+  },
+  "Количество в упаковке, шт.": {
+    "translation": "Кількість в упаковці, шт.",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:09:08.871340"
+  },
+  "Размеры, мм": {
+    "translation": "Розміри, мм",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:09:09.301684"
+  },
+  "Диаметр стержня": {
+    "translation": "Діаметр стрижня",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:13:59.510737"
+  },
+  "Крышка": {
+    "translation": "Кришка",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:14:14.812927"
+  },
+  "Пол": {
+    "translation": "Підлога",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:19:05.024456"
+  },
+  "Количество зубьев": {
+    "translation": "Кількість зубів",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:19:28.056716"
+  },
+  "Материал рабочей части": {
+    "translation": "Матеріал робочої частини",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:19:28.384623"
+  },
+  "Вес": {
+    "translation": "Вага",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:19:44.428235"
+  },
+  "Высота": {
+    "translation": "Висота",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:19:44.875984"
+  },
+  "Количество крючков": {
+    "translation": "Кількість гачків",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T00:31:27.032668"
+  },
+  "Количество трущих/режущих поверхностей": {
+    "translation": "Кількість поверхонь, що труться/ріжучих поверхонь",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T00:31:45.441035"
+  },
+  "Тип опрыскивателя": {
+    "translation": "Тип обприскувача",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T01:21:27.038495"
+  },
+  "Основное назначение": {
+    "translation": "Основне призначення",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T01:22:19.038788"
+  },
+  "Количество персон": {
+    "translation": "Кількість персон",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T14:17:05.458966"
+  },
+  "Подходит для мытья в посудомоечной машине": {
+    "translation": "Підходить для миття в посудомийній машині",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T14:17:05.829955"
+  },
+  "Вязкость масла по SAE": {
+    "translation": "В'язкість оливи за SAE",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T16:42:35.877651"
+  },
+  "Размер": {
+    "translation": "Розмір",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T17:39:23.850962"
+  },
+  "Категории": {
+    "translation": "Категорії",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T17:52:23.502697"
+  },
+  "Узоры и принты": {
+    "translation": "Візерунки та принти",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T17:52:23.710780"
+  },
+  "Вид животных": {
+    "translation": "Вид тварин",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T18:42:28.051693"
+  },
+  "Тип приклеиваемого материала": {
+    "translation": "Тип матеріалу, що приклеюється",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:04:36.078490"
+  },
+  "Потребляемая мощность": {
+    "translation": "Споживана потужність",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:25:30.343003"
+  },
+  "Материал ударного бойка": {
+    "translation": "Матеріал ударного бойка",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:26:53.748458"
+  },
+  "Потребляемая мощность, Вт": {
+    "translation": "Споживана потужність, Вт",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:59:52.563291"
+  },
+  "Тип нагревательного элемента": {
+    "translation": "Тип нагрівального елемента",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:59:52.660734"
+  },
+  "Материал сиденья": {
+    "translation": "Матеріал сидіння",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T20:00:09.892721"
+  },
+  "Тип туристической мебели": {
+    "translation": "Тип туристичних меблів",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T20:00:10.269814"
+  },
+  "Цвет ленты": {
+    "translation": "Колір стрічки",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T20:22:41.231246"
+  },
+  "Зернистость": {
+    "translation": "Зернистість",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T20:22:54.361288"
+  },
+  "Класс защиты": {
+    "translation": "Клас захисту",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T20:28:45.059478"
+  },
+  "Рекомендуемая площадь помещения": {
+    "translation": "Рекомендована площа приміщення",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T20:56:19.942136"
+  },
+  "Тип управления": {
+    "translation": "Тип управління",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T20:56:20.402189"
+  },
+  "Время заряда аккумулятора": {
+    "translation": "Час заряду акумулятора",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T22:16:03.273334"
+  },
+  "Время работы от аккумулятора": {
+    "translation": "Час роботи від акумулятора",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T22:16:03.728638"
+  },
+  "Напряжение аккумулятора": {
+    "translation": "Напруга акумулятора",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T22:16:03.920904"
+  },
+  "Вид тактической обуви": {
+    "translation": "Вид тактичного взуття",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T22:42:13.339484"
+  },
+  "Объем, мл": {
+    "translation": "Об'єм, мл",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T22:44:37.592892"
+  },
+  "Кросс-номери": {
+    "translation": "Крос-номерами",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T00:05:37.884750"
+  },
+  "Тип фонаря": {
+    "translation": "Тип ліхтаря",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T16:39:32.209200"
+  },
+  "Вид обрабатываемого материала": {
+    "translation": "Вид оброблюваного матеріалу",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T16:44:17.320521"
+  },
+  "Тип использования": {
+    "translation": "Тип використання",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T16:44:17.678693"
+  },
+  "Основа грунтовки": {
+    "translation": "Основа ґрунтовки",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T16:44:18.226412"
+  },
+  "Номинальная сила тока": {
+    "translation": "Номінальна сила струму",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:17:09.477542"
+  },
+  "Беспроводные возможности": {
+    "translation": "Бездротові можливості",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:38:52.672600"
+  },
+  "Интерфейсы": {
+    "translation": "Інтерфейси",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:38:53.041933"
+  },
+  "Поддерживаемые карты памяти": {
+    "translation": "Підтримувані карти пам'яті",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:38:53.273400"
+  },
+  "Суммарная мощность звука": {
+    "translation": "Сумарна потужність звуку",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:38:53.381323"
+  },
+  "Материал колбы": {
+    "translation": "Матеріал колби",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:39:11.867263"
+  },
+  "Время нагрева до образования пара": {
+    "translation": "Час нагрівання до утворення пари",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:41:26.678764"
+  },
+  "Время непрерывной работы без долива воды": {
+    "translation": "Час безперервної роботи без доливання води",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:41:27.195081"
+  },
+  "Количество режимов работы": {
+    "translation": "Кількість режимів роботи",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:41:27.400527"
+  },
+  "Объем котла (бака для воды)": {
+    "translation": "Об'єм котла (бака для води)",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:41:27.518624"
+  },
+  "Производительность пара": {
+    "translation": "Продуктивність пари",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:41:27.856303"
+  },
+  "Регулировка силы пара": {
+    "translation": "Регулювання сили пари",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:41:27.969949"
+  },
+  "Название модификации": {
+    "translation": "Назва модифікації",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:59:59.473395"
+  },
+  "Давление, МПа": {
+    "translation": "Тиск, МПа",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T20:00:20.523533"
+  },
+  "Комплектация": {
+    "translation": "Комплектація",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T20:00:20.622016"
+  },
+  "Напряжение, В": {
+    "translation": "Напруга, В",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T20:00:21.108219"
+  },
+  "Производительность, л/мин": {
+    "translation": "Продуктивність, л/хв",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T20:00:21.562352"
+  },
+  "Заварочный чайник": {
+    "translation": "Чайник для заварювання",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T20:01:06.809460"
+  },
+  "Индикатор работы": {
+    "translation": "Індикатор роботи",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T20:01:06.910619"
+  },
+  "Функция автоотключения": {
+    "translation": "Функція автовідключення",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T20:01:07.442563"
+  },
+  "Объём, мл": {
+    "translation": "Об'єм, мл",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T21:05:20.048341"
+  },
+  "Количество светодиодов, шт.": {
+    "translation": "Кількість світлодіодів, шт.",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T21:05:34.664253"
+  },
+  "Антипригарное покрытие чаши": {
+    "translation": "Антипригарне покриття чаші",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T21:35:19.996462"
+  },
+  "Объем масла": {
+    "translation": "Обсяг масла",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T21:35:20.337829"
+  },
+  "Пишущий узел": {
+    "translation": "Пишучий вузол",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T21:58:44.707496"
+  },
+  "Верхний диаметр посуды": {
+    "translation": "Верхній діаметр посуду",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T21:59:18.583871"
+  },
+  "Механизм": {
+    "translation": "Механізм",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T22:00:19.570965"
+  },
+  "Способ освещения": {
+    "translation": "Спосіб освітлення",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T22:44:03.932120"
+  },
+  "Тип освещения по мобильности": {
+    "translation": "Тип освітлення за мобільністю",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T22:44:04.474408"
+  },
+  "Подставка": {
+    "translation": "Підставка",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T22:45:16.497107"
+  },
+  "Тип электробритвы": {
+    "translation": "Тип електробритви",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T22:45:36.880388"
+  },
+  "Варочная поверхность": {
+    "translation": "Варильна поверхня",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T23:36:30.392015"
+  },
+  "Вид плиты": {
+    "translation": "Вид плити",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T23:36:30.585675"
+  },
+  "Общее количество конфорок": {
+    "translation": "Загальна кількість конфорок",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T23:36:31.323444"
+  },
+  "Тип лампы": {
+    "translation": "Тип лампи",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T09:38:55.253643"
+  },
+  "Мощность лампы": {
+    "translation": "Потужність лампи",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T09:38:55.454087"
+  },
+  "Диэлектрическое покрытие": {
+    "translation": "Діелектричне покриття",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T09:39:18.037560"
+  },
+  "Диаметр лопастей": {
+    "translation": "Діаметр лопатей",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T10:08:31.440165"
+  },
+  "Количество скоростей": {
+    "translation": "Кількість швидкостей",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T10:08:31.615893"
+  },
+  "Пульт дистанционного управления": {
+    "translation": "Пульт дистанційного керування",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T10:08:32.150843"
+  },
+  "Регулировка высоты": {
+    "translation": "Регулювання висоти",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T10:08:32.248071"
+  },
+  "Регулировка скорости": {
+    "translation": "Регулювання швидкості",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T10:08:32.345169"
+  },
+  "Функция поворота": {
+    "translation": "Функція повороту",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T10:08:32.548652"
+  },
+  "Предметный столик": {
+    "translation": "Предметний столик",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T10:13:31.155747"
+  },
+  "Фокусировка": {
+    "translation": "Фокусування",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T10:13:31.500731"
+  },
+  "Тип головы": {
+    "translation": "Тип голови",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T14:44:30.522859"
+  },
+  "Количество зубов": {
+    "translation": "Кількість зубів",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:11:51.659286"
+  },
+  "Максимальная рабочая температура": {
+    "translation": "Максимальна робоча температура",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:14:18.958162"
+  },
+  "Максимальный вес": {
+    "translation": "Максимальна вага",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:14:19.036368"
+  },
+  "Минимальная рабочая температура": {
+    "translation": "Мінімальна робоча температура",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:14:19.154418"
+  },
+  "Тип весов": {
+    "translation": "Тип ваг",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:14:19.242919"
+  },
+  "Чехол для хранения и транспортировки": {
+    "translation": "Чохол для зберігання і транспортування",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:17:03.259845"
+  },
+  "Вид лампы": {
+    "translation": "Вид лампи",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:17:18.338057"
+  },
+  "Дополнительные характеристики": {
+    "translation": "Додаткові характеристики",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:17:19.047227"
+  },
+  "Освещенность, Люкс": {
+    "translation": "Освітленість, Люкс",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:17:19.527944"
+  },
+  "Режимы свечения": {
+    "translation": "Режими світіння",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:17:19.622839"
+  },
+  "Цветовая температура": {
+    "translation": "Колірна температура",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:17:20.191664"
+  },
+  "Пьезорозжиг": {
+    "translation": "П'єзорозпал",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:23:41.532596"
+  },
+  "Соединение баллона": {
+    "translation": "З'єднання балона",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:23:41.633244"
+  },
+  "Тип оборудования": {
+    "translation": "Тип обладнання",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:23:41.851342"
+  },
+  "Типы топлива": {
+    "translation": "Типи палива",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:23:41.971066"
+  },
+  "Емкость для молотого кофе": {
+    "translation": "Ємність для меленої кави",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:29:01.033002"
+  },
+  "Номинальное напряжение": {
+    "translation": "Номінальна напруга",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:29:01.235225"
+  },
+  "Объем контейнера для зерен": {
+    "translation": "Обсяг контейнера для зерен",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:29:01.343511"
+  },
+  "Единицы измерения": {
+    "translation": "Одиниці виміру",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:29:32.111988"
+  },
+  "Размеры": {
+    "translation": "Розміри",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:29:32.605252"
+  },
+  "Точность": {
+    "translation": "Точність",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:29:32.821954"
+  },
+  "Элементы питания": {
+    "translation": "Елементи живлення",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:29:33.237325"
+  },
+  "Категории товара": {
+    "translation": "Категорії товару",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:29:45.437162"
+  },
+  "Комплектация_ua": {
+    "translation": "Комплектація_ua",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:29:46.021937"
+  },
+  "Мoдель": {
+    "translation": "Модель",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:29:46.379889"
+  },
+  "Совместимость с маркой": {
+    "translation": "Сумісність із маркою",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:29:46.899220"
+  },
+  "Фиксатор ленты": {
+    "translation": "Фіксатор стрічки",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:30:55.702284"
+  }
+}

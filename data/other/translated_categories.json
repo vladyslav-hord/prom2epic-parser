@@ -1,0 +1,494 @@
+{
+  "Электроника": {
+    "translation": "Електроніка",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:07:40.752115"
+  },
+  "Портативные зарядные устройства": {
+    "translation": "Портативні зарядні пристрої",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T15:16:22.313272"
+  },
+  "Щетки, лопаты": {
+    "translation": "Щітки, лопати",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:05:05.053305"
+  },
+  "Автоаксессуары": {
+    "translation": "Автоаксесуари",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:09:08.281070"
+  },
+  "Трансмиссия": {
+    "translation": "Трансмісія",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:19:44.352433"
+  },
+  "Двигатель": {
+    "translation": "Двигун",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:19:52.593088"
+  },
+  "Топливная система": {
+    "translation": "Паливна система",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:19:58.810265"
+  },
+  "Тормозная система": {
+    "translation": "Гальмівна система",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:20:06.920547"
+  },
+  "Тороидальные внутренние": {
+    "translation": "Тороїдальні внутрішні",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:38:50.609161"
+  },
+  "Коврики автомобильные": {
+    "translation": "Килимки автомобільні",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:39:03.901918"
+  },
+  "Электрика": {
+    "translation": "Електрика",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:43:11.792218"
+  },
+  "Ходовая": {
+    "translation": "Ходова",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:43:18.020810"
+  },
+  "Выхлопная система": {
+    "translation": "Вихлопна система",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:43:24.237134"
+  },
+  "Грунт": {
+    "translation": "Ґрунт",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:43:43.925650"
+  },
+  "Аккумуляторы": {
+    "translation": "Акумулятори",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:45:15.823011"
+  },
+  "Шины, камеры, диски": {
+    "translation": "Шини, камери, диски",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-10T21:45:51.902162"
+  },
+  "Системы охлаждения и отопителя": {
+    "translation": "Системи охолодження та обігрівача",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T01:14:10.744904"
+  },
+  "Чехлы": {
+    "translation": "Чохли",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T01:18:21.965524"
+  },
+  "Амортизаторы": {
+    "translation": "Амортизатори",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T01:20:45.433001"
+  },
+  "Домкраты": {
+    "translation": "Домкрати",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T16:42:00.443702"
+  },
+  "Моторные": {
+    "translation": "Моторні",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T16:42:35.517621"
+  },
+  "Рулевое управление": {
+    "translation": "Рульове управління",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T16:45:45.809725"
+  },
+  "Шины": {
+    "translation": "Шини",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T16:46:19.123162"
+  },
+  "Фильтры": {
+    "translation": "Фільтри",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T17:38:44.314257"
+  },
+  "Военторг": {
+    "translation": "Воєнторг",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T17:52:23.299224"
+  },
+  "Наборы для отдыха": {
+    "translation": "Набори для відпочинку",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T18:42:14.399577"
+  },
+  "Товары для животных": {
+    "translation": "Товари для тварин",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T18:42:27.589228"
+  },
+  "Парктроник": {
+    "translation": "Парктронік",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:06:48.099328"
+  },
+  "Наборы инструментов": {
+    "translation": "Набори інструментів",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:07:34.430195"
+  },
+  "Подшипники": {
+    "translation": "Підшипники",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:11:19.808450"
+  },
+  "Аксессуары": {
+    "translation": "Аксесуари",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:11:42.951107"
+  },
+  "Руль": {
+    "translation": "Кермо",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:11:57.146259"
+  },
+  "Ремкомплекты": {
+    "translation": "Ремкомплекти",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:14:08.205580"
+  },
+  "Ходовые огни": {
+    "translation": "Ходові вогні",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:14:44.062173"
+  },
+  "Товары для дома и сада": {
+    "translation": "Товари для дому та саду",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:25:30.267174"
+  },
+  "Цилиндры": {
+    "translation": "Циліндри",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:54:52.086165"
+  },
+  "Электрочайники": {
+    "translation": "Електрочайники",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T19:59:52.326844"
+  },
+  "Сигналы": {
+    "translation": "Сигнали",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T20:25:16.176376"
+  },
+  "Все для кухни": {
+    "translation": "Все для кухні",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T20:29:08.333312"
+  },
+  "Насосы": {
+    "translation": "Насоси",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T21:21:52.421611"
+  },
+  "Галогенные": {
+    "translation": "Галогенні",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T21:22:02.506334"
+  },
+  "Велосипеды, самокаты": {
+    "translation": "Велосипеди, самокати",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T21:25:34.782259"
+  },
+  "Карбюраторы": {
+    "translation": "Карбюратори",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T22:21:16.704764"
+  },
+  "Стартеры": {
+    "translation": "Стартери",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T22:21:40.890086"
+  },
+  "Чемоданы / Сумки": {
+    "translation": "Валізи / Сумки",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T22:44:53.666566"
+  },
+  "Аварийный инвентарь": {
+    "translation": "Аварійний інвентар",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T23:08:17.661369"
+  },
+  "Стенды, станки": {
+    "translation": "Стенди, верстати",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T23:08:37.487375"
+  },
+  "Эмуляторы": {
+    "translation": "Емулятори",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-11T23:57:39.540820"
+  },
+  "Общее": {
+    "translation": "Загальне",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T00:00:51.187374"
+  },
+  "Грунтовки": {
+    "translation": "Ґрунтовки",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T16:44:17.219345"
+  },
+  "Двигатель 190N": {
+    "translation": "Двигун 190N",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T16:50:36.595902"
+  },
+  "Рожковые, накидные": {
+    "translation": "Ріжкові, накидні",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T16:51:33.866661"
+  },
+  "Колонки и акустические системы": {
+    "translation": "Колонки та акустичні системи",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:38:52.573805"
+  },
+  "Фары дополнительные": {
+    "translation": "Фари додаткові",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:42:05.615848"
+  },
+  "Топливозаправочное оборудование": {
+    "translation": "Паливозаправне обладнання",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:46:38.002734"
+  },
+  "Разъёмы": {
+    "translation": "Роз'єми",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T19:47:55.034009"
+  },
+  "Миникомпрессоры": {
+    "translation": "Мінікомпресори",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T20:00:20.300073"
+  },
+  "Генераторы": {
+    "translation": "Генератори",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T20:32:19.541208"
+  },
+  "Навесное": {
+    "translation": "Навісне",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T20:33:10.919114"
+  },
+  "Хомуты": {
+    "translation": "Хомути",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T21:30:54.789150"
+  },
+  "Шуруповерты": {
+    "translation": "Шуруповерти",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T21:32:08.364803"
+  },
+  "Цилиндрические": {
+    "translation": "Циліндричні",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T21:36:02.448283"
+  },
+  "Детский мир, детские товары": {
+    "translation": "Дитячий світ, дитячі товари",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T21:58:44.584593"
+  },
+  "Тороидальные наружные": {
+    "translation": "Тороїдальні зовнішні",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T22:01:07.297435"
+  },
+  "Канистры": {
+    "translation": "Каністри",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T22:01:24.213817"
+  },
+  "Гидроцилиндры": {
+    "translation": "Гідроциліндри",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T22:06:17.322716"
+  },
+  "Мультиклапаны": {
+    "translation": "Мультиклапани",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T22:46:26.974555"
+  },
+  "Гидравлические": {
+    "translation": "Гідравлічні",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-12T23:40:24.374003"
+  },
+  "Фонари, прожекторы, светильники": {
+    "translation": "Ліхтарі, прожектори, світильники",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T09:38:55.061441"
+  },
+  "Зажимы, фиксаторы": {
+    "translation": "Затискачі, фіксатори",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T10:13:15.062747"
+  },
+  "Фени, фарбопульти": {
+    "translation": "Фені, фарбопульти",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T11:51:34.538007"
+  },
+  "Копмлектующие к редукторам": {
+    "translation": "Копмлектуючі до редукторів",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:04:03.732199"
+  },
+  "Магнитолы": {
+    "translation": "Магнітоли",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:04:44.507003"
+  },
+  "Зарядные и пусковые устройства": {
+    "translation": "Зарядні та пускові пристрої",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:05:13.951609"
+  },
+  "Автокомпрессоры": {
+    "translation": "Автокомпресори",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:09:58.033044"
+  },
+  "Лампы накаливания": {
+    "translation": "Лампи розжарювання",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:10:14.869632"
+  },
+  "Фары противотуманные": {
+    "translation": "Фари протитуманні",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:20:54.333614"
+  },
+  "Двигатель 195N": {
+    "translation": "Двигун 195N",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:22:22.365211"
+  },
+  "Спорт, здоровье, туризм": {
+    "translation": "Спорт, здоров'я, туризм",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:23:41.430123"
+  },
+  "Тестеры": {
+    "translation": "Тестери",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:31:17.234258"
+  },
+  "Заправочные узлы (ВЗУ)": {
+    "translation": "Заправні вузли (ВЗУ)",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:34:15.162518"
+  },
+  "Коммутаторы": {
+    "translation": "Комутатори",
+    "source_lang": "ru",
+    "target_lang": "uk",
+    "timestamp": "2025-11-13T15:39:07.806186"
+  }
+}
