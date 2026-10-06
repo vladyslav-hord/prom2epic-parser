@@ -9,7 +9,7 @@
 This repository is **not guaranteed to run today**. Since the original migration:
 
 - external APIs and their contracts may have changed;
-- private source feeds, category dictionaries, caches, and other production data are not included;
+- The original source feed, credentials, and complete/current production datasets are not included. Some historical marketplace dictionaries and caches are retained as snapshots.
 - API credentials and the original deployment environment are not included;
 - the current Epicentr API is outside the scope of this snapshot.
 
