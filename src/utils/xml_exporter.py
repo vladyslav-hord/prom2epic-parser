@@ -23,25 +23,6 @@ def indent_xml(elem: ET.Element, level: int = 0, indent: str = "  ") -> None:
             elem.tail = i
 
 
-def escape_xml_text(text: str) -> str:
-    # ""Escape XML-sensitive characters in text.""
-    if not text:
-        return ""
-    
-    text = str(text)
-    # Prevent double escaping of already escaped XML entities.
-    if "&amp;" in text or "&lt;" in text or "&gt;" in text or "&quot;" in text or "&apos;" in text:
-        return text
-    
-    text = text.replace("&", "&amp;")
-    text = text.replace("<", "&lt;")
-    text = text.replace(">", "&gt;")
-    text = text.replace('"', "&quot;")
-    text = text.replace("'", "&apos;")
-    
-    return text
-
-
 class XMLExporter:
     # ""Export products in Epicentr XML schema.""
     
@@ -77,9 +58,8 @@ class XMLExporter:
         missing_fields = self._validate_mandatory_fields(product_data)
         if missing_fields:
             product_id = product_data.get('id', 'unknown')
-            logging.error(
-                f"PRODUCT {product_id}: Missing required fields: {', '.join(missing_fields.values())}. "
-                f"The product will still be exported with a warning."
+            raise ValueError(
+                f"PRODUCT {product_id}: Missing required fields: {', '.join(missing_fields.values())}"
             )
         
         offer_elem = self._create_offer_element(product_data)
@@ -116,11 +96,12 @@ class XMLExporter:
             missing_fields["pictures"] = self.MANDATORY_FIELDS["pictures"]
             logging.warning(f"PRODUCT {product_id}: missing images")
         
-        if not product_data.get("country_ua"):
-            missing_fields["country_ua"] = self.MANDATORY_FIELDS["country_ua"]
-            logging.warning(f"PRODUCT {product_id}: missing country of origin")
-        
         epic_attributes = product_data.get("epic_attributes", [])
+        country_attr = next((attr for attr in epic_attributes if attr.get("paramcode") == "country_of_origin"), None)
+        if not product_data.get("country_ua") or not country_attr or not country_attr.get("valuecode"):
+            missing_fields["country_ua"] = self.MANDATORY_FIELDS["country_ua"]
+            logging.warning(f"PRODUCT {product_id}: missing country of origin or valuecode")
+        
         measure_attr = next((attr for attr in epic_attributes if attr.get("paramcode") == "measure"), None)
         if not measure_attr or not measure_attr.get("value"):
             missing_fields["measure"] = self.MANDATORY_FIELDS["measure"]
@@ -144,15 +125,15 @@ class XMLExporter:
             missing_fields["category"] = self.MANDATORY_FIELDS["category"]
             logging.warning(f"PRODUCT {product_id}: missing category")
         
-        if product_data.get("available") is False:
+        if product_data.get("available") is not True:
             missing_fields["available"] = self.MANDATORY_FIELDS["available"]
-            logging.warning(f"PRODUCT {product_id}: product is unavailable (available=false)")
+            logging.warning(f"PRODUCT {product_id}: missing or unavailable product")
         
         return missing_fields
     
     def _fill_mandatory_fields(self, product_data: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Fill missing required fields with fallback values.
+        Normalize evidence-backed and optional fields without inventing mandatory values.
         
         Args:
             product_data: Product data.
@@ -163,80 +144,16 @@ class XMLExporter:
         product_id = product_data.get('id', 'unknown')
         epic_attributes = product_data.get("epic_attributes", [])
         
-        if not product_data.get("name_ua") and not product_data.get("name"):
-            product_data["name_ua"] = "Товар без назви"
-            product_data["name"] = "Товар без названия"
-            logging.warning(f"PRODUCT {product_id}: using fallback value for name_ua")
-        elif not product_data.get("name_ua"):
-            product_data["name_ua"] = product_data.get("name", "Товар без назви")
-        
-        if not product_data.get("price"):
-            product_data["price"] = "0"
-            logging.warning(f"PRODUCT {product_id}: using fallback value for price: 0")
+        if not product_data.get("name_ua") and product_data.get("name"):
+            product_data["name_ua"] = product_data["name"]
         
         if not product_data.get("price_old"):
             product_data["price_old"] = "0"
         
-        if not product_data.get("pictures"):
-            product_data["pictures"] = []
-            logging.warning(f"PRODUCT {product_id}: no images")
-        
-        if not product_data.get("country_ua"):
-            product_data["country_ua"] = "Китай"
-            logging.warning(f"PRODUCT {product_id}: using fallback value for country_ua: Китай")
-            country_attr = next((attr for attr in epic_attributes if attr.get("paramcode") == "country_of_origin"), None)
-            if not country_attr:
-                epic_attributes.append({
-                    "name": "Країна-виробник",
-                    "paramcode": "country_of_origin",
-                    "valuecode": "chn",
-                    "value": "Китай",
-                    "type": "select",
-                    "is_required": True
-                })
-                product_data["epic_attributes"] = epic_attributes
-                logging.info(f"PRODUCT {product_id}: added country_of_origin attribute with fallback value")
-        
-        if product_data.get("available") is None:
-            product_data["available"] = True
-        
-        measure_attr = next((attr for attr in epic_attributes if attr.get("paramcode") == "measure"), None)
-        if not measure_attr or not measure_attr.get("value"):
-            measure_valuecode = "measure_pcs"
-            measure_value = "шт."
-            
-            if not measure_attr:
-                epic_attributes.append({
-                    "name": "Одиниця виміру та кількість",
-                    "paramcode": "measure",
-                    "valuecode": measure_valuecode,
-                    "value": measure_value,
-                    "type": "select",
-                    "is_required": True
-                })
-                product_data["epic_attributes"] = epic_attributes
-                logging.warning(f"PRODUCT {product_id}: added measure attribute with fallback value: {measure_value}")
         
         brand_attr = next((attr for attr in epic_attributes if attr.get("paramcode") == "brand"), None)
         if not brand_attr or not brand_attr.get("value"):
             logging.error(f"PRODUCT {product_id}: CRITICAL - brand is not filled. This must be handled in attributes_filler.")
-        
-        ratio_attr = next((attr for attr in epic_attributes if attr.get("paramcode") == "ratio"), None)
-        if not ratio_attr or not ratio_attr.get("value"):
-            if not ratio_attr:
-                epic_attributes.append({
-                    "name": "Кратність",
-                    "paramcode": "ratio",
-                    "valuecode": None,
-                    "value": "1.0",
-                    "type": "float",
-                    "is_required": True
-                })
-                product_data["epic_attributes"] = epic_attributes
-                logging.warning(f"PRODUCT {product_id}: added ratio attribute with fallback value: 1.0")
-            else:
-                ratio_attr["value"] = "1.0"
-                logging.warning(f"PRODUCT {product_id}: updated ratio attribute with fallback value: 1.0")
         
         return product_data
     
@@ -282,6 +199,16 @@ class XMLExporter:
             if product_data.get("rejected"):
                 continue
             
+            product_data = self._fill_mandatory_fields(product_data)
+            missing_fields = self._validate_mandatory_fields(product_data)
+            if missing_fields:
+                product_id = product_data.get('id', 'unknown')
+                logging.error(
+                    f"PRODUCT {product_id}: Missing required fields: {', '.join(missing_fields.values())}. "
+                    "Skipping export."
+                )
+                continue
+
             offer_elem = self._create_offer_element(product_data)
             offers.append(offer_elem)
             new_count += 1
@@ -375,11 +302,11 @@ class XMLExporter:
         
         description_ru_elem = ET.SubElement(offer, "description")
         description_ru_elem.set("lang", "ru")
-        description_ru_elem.text = escape_xml_text(description_ru)
+        description_ru_elem.text = description_ru
         
         description_ua_elem = ET.SubElement(offer, "description")
         description_ua_elem.set("lang", "ua")
-        description_ua_elem.text = escape_xml_text(description_ua)
+        description_ua_elem.text = description_ua
         
         epic_attributes = product_data.get("epic_attributes", [])
         brand_attr = next((attr for attr in epic_attributes if attr.get("paramcode") == "brand"), None)
@@ -394,16 +321,12 @@ class XMLExporter:
             vendor_elem.text = brand_attr.get("value", "")
         else:
             logging.error(f"Product {product_id}: CRITICAL - brand is missing. It must be filled in attributes_filler.")
-            vendor_elem = ET.SubElement(offer, "vendor")
-            vendor_elem.text = "Unknown"
         
-        country_ua = product_data.get("country_ua") or "Китай"
+        country_ua = product_data.get("country_ua") or ""
         country_attr = next((attr for attr in epic_attributes if attr.get("paramcode") == "country_of_origin"), None)
         country_code = ""
         if country_attr and country_attr.get("valuecode"):
             country_code = country_attr["valuecode"]
-        elif country_ua.lower() in ["китай", "china"]:
-            country_code = "chn"
         
         country_elem = ET.SubElement(offer, "country_of_origin")
         if country_code:

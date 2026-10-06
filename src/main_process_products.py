@@ -184,16 +184,9 @@ def process_products(xml_file_path: str,
     
     error_count = 0
     
-    base_start_index = start_index
-    if saved_progress:
-        last_index = saved_progress.get("last_index")
-        if last_index is not None:
-            base_start_index = max(start_index, last_index + 1)
-            logging.info(f"Resuming from index {base_start_index} (last processed: {last_index})")
-    
     if random_selection:
         available_indices = [
-            idx for idx in range(base_start_index, total_products)
+            idx for idx in range(start_index, total_products)
             if idx not in processed_indices_set
         ]
         random.shuffle(available_indices)
@@ -204,11 +197,11 @@ def process_products(xml_file_path: str,
         )
     else:
         selected_indices = [
-            idx for idx in range(base_start_index, total_products)
+            idx for idx in range(start_index, total_products)
             if idx not in processed_indices_set
         ]
         logging.info(
-            f"Processing from index {base_start_index}, selected {len(selected_indices)} new products "
+            f"Processing from index {start_index}, selected {len(selected_indices)} new products "
             f"(already processed: {len(processed_indices_set)})"
         )
     
@@ -225,28 +218,40 @@ def process_products(xml_file_path: str,
         }
     
     all_processed_indices = list(processed_indices_set)
+    pending_success_indices = []
     
     logging.info(f"Starting processing for {len(selected_indices)} products...")
     
     for i, product_index in enumerate(selected_indices):
         try:
             logging.info(f"Processing product {i+1}/{len(selected_indices)} (index {product_index})...")
+            product_counted = False
             
             product_data = processor.process_single_product(xml_file_path, product_index)
             
             if product_data:
                 if product_data.get("rejected"):
                     rejected_count += 1
+                    product_counted = True
                     logging.warning(
                         f"Product {product_index} rejected: "
                         f"{product_data.get('classification', {}).get('reasoning', 'Unknown reason')}"
                     )
+                    processed_products.append(product_data)
+                    all_processed_indices.append(product_index)
                 else:
-                    successful_count += 1
-                    logging.info(f"Product {product_index} processed successfully")
-                
-                processed_products.append(product_data)
-                all_processed_indices.append(product_index)
+                    missing_fields = processor.xml_exporter._validate_mandatory_fields(product_data)
+                    if missing_fields:
+                        error_count += 1
+                        logging.error(
+                            f"Product {product_index} is not ready for export: "
+                            f"{', '.join(missing_fields.values())}"
+                        )
+                    else:
+                        logging.info(f"Product {product_index} processed successfully")
+                        product_counted = True
+                        processed_products.append(product_data)
+                        pending_success_indices.append(product_index)
             else:
                 try:
                     temp_product = parser.parse_offer_by_index(product_index)
@@ -254,7 +259,9 @@ def process_products(xml_file_path: str,
                         product_id = getattr(temp_product, "id", str(product_index))
                         if processor.no_photos_manager.is_no_photos(product_id):
                             no_photos_count += 1
+                            product_counted = True
                             logging.info(f"Product {product_index} skipped: no photos")
+                            all_processed_indices.append(product_index)
                         else:
                             error_count += 1
                             logging.error(f"Failed to process product {product_index}")
@@ -264,16 +271,20 @@ def process_products(xml_file_path: str,
                 except Exception:
                     error_count += 1
                     logging.error(f"Failed to process product {product_index}")
-                
-                all_processed_indices.append(product_index)
             
-            total_processed = successful_count + rejected_count + no_photos_count
-            if total_processed > 0 and total_processed % 5 == 0:
+            total_processed = (
+                successful_count + len(pending_success_indices)
+                + rejected_count + no_photos_count
+            )
+            if (product_counted and total_processed > 0 and total_processed % 5 == 0):
                 logging.info(f"Auto-save: {total_processed} products processed")
                 
                 processor.xml_exporter.export_products(
                     processed_products, str(output_path), append=append_to_output
                 )
+                successful_count += len(pending_success_indices)
+                all_processed_indices.extend(pending_success_indices)
+                pending_success_indices = []
                 append_to_output = True
                 
                 last_index = product_index
@@ -292,13 +303,15 @@ def process_products(xml_file_path: str,
         except Exception as e:
             error_count += 1
             logging.error(f"Error while processing product {product_index}: {e}", exc_info=True)
-            all_processed_indices.append(product_index)
     
     if processed_products:
         logging.info(f"Final save of {len(processed_products)} products...")
         processor.xml_exporter.export_products(
             processed_products, str(output_path), append=append_to_output
         )
+        successful_count += len(pending_success_indices)
+        all_processed_indices.extend(pending_success_indices)
+        pending_success_indices = []
     
     total_processed = successful_count + rejected_count + no_photos_count
     logging.info("=" * 60)

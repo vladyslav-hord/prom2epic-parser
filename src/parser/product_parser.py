@@ -18,6 +18,7 @@ class ProductData:
         self.description_ua: str = ""
         self.price: str = ""
         self.price_old: str = ""
+        self.available: bool = False
         self.url: str = ""
         self.vendor: str = ""
         self.country_of_origin: str = ""
@@ -36,6 +37,7 @@ class ProductData:
             "description_ua": self.description_ua,
             "price": self.price,
             "price_old": self.price_old,
+            "available": self.available,
             "url": self.url,
             "vendor": self.vendor,
             "country_of_origin": self.country_of_origin,
@@ -147,6 +149,7 @@ class PromXMLParser:
             return None
         
         product = ProductData()
+        product.available = True
         
         product.id = offer_elem.get('id', '')
         

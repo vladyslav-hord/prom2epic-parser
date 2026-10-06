@@ -134,18 +134,17 @@ REQUIRED ATTRIBUTES TO FILL:
 {attributes_text}
 
 CRITICAL RULES:
-1. Every attribute listed above MUST be present in the JSON response.
-2. Do not skip attributes even when uncertain; provide the most likely value.
-3. All values must be in Ukrainian.
-4. For select/multiselect, choose the best matching option by product context.
+1. Provide a value only when it is directly supported by the product data above.
+2. If the evidence is insufficient, omit the attribute or return null; do not guess.
+3. All non-null values must be in Ukrainian.
+4. For select/multiselect, use only a value supported by the product context.
 5. For numeric attributes: weight in grams, dimensions in millimeters.
-6. Do not return empty values or null.
 
 JSON RESPONSE FORMAT:
-Your JSON must include all these attribute codes:
+Include only supported values. Allowed attribute codes are:
 {', '.join(required_attr_codes)}
 
-Example response:
+Example shape (omit or use null for unsupported values):
 {example_json}
 
 Reply with JSON only, no extra text."""
@@ -214,7 +213,7 @@ CRITICAL RULES:
 1. Brand is required.
 2. Return brand in Ukrainian where applicable (keep global brand names unchanged).
 3. Never return generic placeholders like "Unknown", "No brand", or empty values.
-4. If uncertain, still provide the most likely brand.
+4. Unless the brand is directly supported by the product evidence above, return "USE_FALLBACK_SEARCH".
 5. If no reliable brand is found, return "USE_FALLBACK_SEARCH".
 
 JSON RESPONSE FORMAT:
