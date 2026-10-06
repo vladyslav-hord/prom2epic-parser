@@ -1,138 +1,68 @@
-# Product Processing Pipeline
+# Prom.ua → Epicentr Product Migration Pipeline
 
-Takes product data from Prom.ua XML exports and prepares it for the Epic marketplace. Handles translation, automatic categorization, and attribute mapping.
+> **Archived commercial project / historical snapshot.**
+>
+> This codebase supported a real commercial migration of approximately **50,000 products** from Prom.ua to Epicentr. It is preserved for portfolio and historical reference, not as a maintained integration.
 
-## What it does
+## Snapshot status
 
-Parse XML → Translate to Ukrainian → Find matching category → Fill attributes → Export to Epic format
+This repository is **not guaranteed to run today**. Since the original migration:
 
-The categorization works in 3 stages:
-1. Fast semantic search narrows down to 100 categories
-2. OpenAI reranking picks top 15
-3. GPT makes the final call
+- external APIs and their contracts may have changed;
+- The original source feed, credentials, and complete/current production datasets are not included. Some historical marketplace dictionaries and caches are retained as snapshots.
+- API credentials and the original deployment environment are not included;
+- the current Epicentr API is outside the scope of this snapshot.
 
-If nothing fits, it asks GPT for suggestions and tries again.
+The repository therefore documents the original implementation and selected safety fixes; cloning it, installing dependencies, and supplying API keys is not presented as a complete reproduction path.
 
-## Stack
+## What it did
+
+The pipeline transformed Prom.ua XML exports into an Epicentr-oriented product feed:
+
+`XML parsing → normalization/translation → category matching → attribute mapping → XML export`
+
+Category matching used three stages:
+
+1. local semantic search to reduce the category space;
+2. embedding-based reranking;
+3. LLM selection from the supplied candidate set.
+
+Products without a defensible category or required attribute mapping were separated for rejection or manual review.
+
+## Architecture
+
+- `src/parser/` — streaming Prom.ua XML parsing.
+- `src/category_matcher/` — semantic retrieval, hierarchy weighting, reranking, and constrained LLM selection.
+- `src/utils/attributes_filler/` — mapping source parameters to Epicentr attribute dictionaries.
+- `src/utils/product_processor.py` — orchestration for one product and rejection handling.
+- `src/main_process_products.py` — batch processing, progress persistence, and resume behavior.
+- `src/utils/xml_exporter.py` — Epicentr-oriented XML generation.
+- `data/` — historical dictionaries, caches, samples, and generated artifacts where included.
+
+## Historical stack
 
 - Python 3.9+
-- sentence-transformers for semantic search
-- OpenAI API for smart matching
-- DeepL for translation
+- `sentence-transformers` / PyTorch for semantic search
+- OpenAI APIs for reranking and constrained selection
+- DeepL for optional translation
+- ElementTree for XML parsing and export
 
-## Quick Start
+## Trade-offs / lessons learned
 
-```bash
-# Clone and setup
-git clone <your-repo>
-cd prom2epic_parser_backup
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
+- **Hybrid matching was practical at catalog scale.** Local retrieval reduced LLM cost, but every LLM output still needed validation against deterministic candidate sets and dictionaries.
+- **Fail-closed data quality matters.** Guessing required marketplace attributes can produce syntactically valid but commercially incorrect listings; unresolved values should go to manual review.
+- **Resume state must track explicit completed items.** A single “last index” is insufficient when processing order is randomized or failures must be retried.
+- **Marketplace integrations age quickly.** API contracts, taxonomies, credentials, and private source data make long-term reproducibility difficult without a maintained test environment.
+- **XML libraries should own escaping.** Pre-escaping text before ElementTree serialization causes double-escaped output.
 
-# Add your API keys
-cp .env.example .env
-# Edit .env with your keys
+## Historical outputs
 
-# Run it
-python src/main_process_products.py --input data/input/prom_export.xml
-```
+The original workflow produced:
 
-### API Keys You Need
-
-Create a `.env` file:
-```
-OPENAI_API_KEY=your_key_here
-EPIC_API_KEY=your_key_here
-DEEPL_API_KEY=your_key_here  # optional
-```
-
-## Usage
-
-Basic:
-```bash
-python src/main_process_products.py --input data/input/prom_export.xml
-```
-
-More options:
-```bash
-# Start from specific product
-python src/main_process_products.py --sequential --start-index 100
-
-# Skip attributes to go faster
-python src/main_process_products.py --no-attributes
-
-# Save to custom file
-python src/main_process_products.py --output data/output/my_products.xml
-```
-
-**Resume:** If you stop the script, just run it again - it remembers where it left off.
-
-## Project Structure
-
-```
-src/
-├── category_matcher/   # Smart categorization
-├── parser/             # XML handling
-├── utils/              # Translation, attributes, export
-└── main_process_products.py
-
-data/
-├── input/              # Put your XML here
-├── output/             # Results end up here
-└── other/              # Caches and configs
-```
-
-## How Categorization Works
-
-**Stage 1:** Semantic search
-- Converts product description to embeddings
-- Finds 100 closest categories
-- Weighs by super-category match
-
-**Stage 2:** OpenAI rerank  
-- Takes top 100, reranks with better embeddings
-- Keeps 15 best matches
-
-**Stage 3:** GPT decides
-- Looks at product + 15 categories
-- Picks the best one or says "none fit"
-- If rejected, suggests alternatives and retries
-
-**Attribute mapping:**
-- Matches your product params to Epic's attributes
-- Uses LLM when data is missing
-- Semantic search for dropdown values
-- Always fills brand and country
-
-## Output
-
-After processing you get:
-- `products_*.xml` - Ready for Epic
-- `rejected_products.json` - What didn't match
-- `no_photos_products.json` - Skipped (no images)
-- `processing_progress.json` - Resume data
-
-## Performance
-
-- First run: ~2-5 min to build embeddings cache
-- After that: ~30-60 sec per product
-- Auto-saves every 5 products
-- Costs depend on OpenAI usage
-
-## Testing
-
-```bash
-pytest                           # run all tests
-pytest --cov=src                 # with coverage
-pytest tests/test_specific.py    # single file
-```
-
-## Notes
-
-- Needs valid OpenAI and Epic API keys
-- Translation works without DeepL but quality is lower
-- Check costs before running on large datasets
+- `products_*.xml` — generated product feeds;
+- `rejected_products.json` — products requiring rejection/manual review;
+- `no_photos_products.json` — products skipped because images were missing;
+- `processing_progress.json` — batch resume state.
 
 ## License
 

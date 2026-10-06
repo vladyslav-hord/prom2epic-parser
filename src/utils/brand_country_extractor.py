@@ -17,14 +17,8 @@ class BrandCountryExtractor:
         self.countries = self._load_countries()
         self.brands = self._load_brands()
         
-        # Domain default value; keep as is.
-        self.default_country = "Китай"
-        self.default_country_ua = "Китай"
-        
-        if self.translator:
-            translated = self.translator.translate_text(self.default_country, 'ru', 'uk')
-            if translated:
-                self.default_country_ua = translated
+        self.default_country = ""
+        self.default_country_ua = ""
     
     def _load_countries(self) -> Dict[str, str]:
         # ""Load countries dictionary.""

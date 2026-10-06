@@ -228,21 +228,20 @@ class AttributesFiller:
                         logging.warning("ChatGPT did not provide a valid brand; using semantic search on product name")
                         values_dict = brand_attr.get("values", {})
                         if values_dict:
-                            code, text, score = self.value_matcher.find_best_match(product_name_ua, values_dict)
-                            filled_attr = self._fill_brand_attribute(brand_attr, text, filled_values)
-                            if filled_attr:
+                            best_match = self.value_matcher.find_best_match(
+                                product_name_ua, values_dict, threshold=0.9
+                            )
+                            if best_match:
+                                code, text, score = best_match
+                                filled_attr = self._create_base_attr_result(brand_attr)
                                 filled_attr["valuecode"] = code
                                 filled_attr["value"] = text
+                                filled_values["brand"] = text
                                 result = [attr for attr in result if attr.get("paramcode") != "brand"]
                                 result.append(filled_attr)
                                 logging.warning(f"Brand found via semantic search in product name: {text} (code: {code}, score: {score:.3f})")
                         else:
                             logging.error(f"CRITICAL: Brand dictionary is empty. Cannot run semantic search for product {product_name_ua[:50]}...")
-                            filled_attr = self._create_base_attr_result(brand_attr)
-                            filled_attr["value"] = "Unknown"
-                            result = [attr for attr in result if attr.get("paramcode") != "brand"]
-                            result.append(filled_attr)
-                            logging.error("Created brand attribute with fallback value 'Unknown' (brand dictionary unavailable)")
                 else:
                     filled_attr = self._fill_brand_attribute(brand_attr, product_brand, filled_values)
                     if filled_attr:
@@ -290,7 +289,7 @@ class AttributesFiller:
                         f"using fallback"
                     )
                     filled_attr = self._fill_attribute_fallback(epic_attr, filled_values)
-                    if filled_attr and filled_attr.get("value"):
+                    if filled_attr:
                         result = [attr for attr in result if attr.get("paramcode") != attr_code]
                         result.append(filled_attr)
         
@@ -397,34 +396,11 @@ class AttributesFiller:
                 )
                 return attr_result
         
-        if attr_type in ("float", "integer"):
-            normalized_value = self.unit_converter.normalize_numeric_value(
-                suggested_value, attr_type, attr_name
-            )
-            if normalized_value is not None:
-                attr_result["value"] = str(normalized_value)
-                filled_values[attr_code] = str(normalized_value)
-                logging.info(f"Used normalized value for numeric attribute {attr_code}: {normalized_value}")
-                return attr_result
-        
-        if attr_type in ("select", "multiselect") and "values" in epic_attr:
-            values_dict = epic_attr["values"]
-            if values_dict:
-                best_match = self.value_matcher.find_best_match(suggested_value, values_dict)
-                if best_match:
-                    code, text, score = best_match
-                    attr_result["valuecode"] = code
-                    attr_result["value"] = text
-                    filled_values[attr_code] = text
-                    logging.warning(
-                        f"Used best-matching value for attribute {attr_code}: {text} (score: {score:.3f})"
-                    )
-                    return attr_result
-        
-        attr_result["value"] = suggested_value
-        filled_values[attr_code] = suggested_value
-        logging.info(f"Used suggested value for attribute {attr_code}: {suggested_value}")
-        return attr_result
+        logging.warning(
+            f"LLM suggestion for required attribute {attr_code} ({attr_name}) could not be "
+            "verified; leaving it unresolved for manual review"
+        )
+        return None
     
     def _try_find_in_dictionary(self,
                                 epic_attr: Dict[str, Any],
@@ -456,8 +432,7 @@ class AttributesFiller:
         if semantic_match:
             return semantic_match
         
-        best_match = self.value_matcher.find_best_match(search_value, values_dict)
-        return best_match
+        return None
     
     def _fill_attribute_fallback(self,
                                 epic_attr: Dict[str, Any],
@@ -489,96 +464,10 @@ class AttributesFiller:
                 )
                 return attr_result
         
-        if attr_type in ("select", "multiselect") and "values" in epic_attr:
-            values_dict = epic_attr["values"]
-            if values_dict:
-                if suggested_value:
-                    match = self._try_find_in_dictionary(epic_attr, suggested_value)
-                    if match:
-                        code, text, score = match
-                        attr_result["valuecode"] = code
-                        attr_result["value"] = text
-                        filled_values[attr_code] = text
-                        logging.info(f"Value found via semantic search: {text} (score: {score:.3f})")
-                        return attr_result
-                
-                first_code = list(values_dict.keys())[0]
-                first_value = values_dict[first_code]
-                attr_result["valuecode"] = first_code
-                attr_result["value"] = first_value
-                filled_values[attr_code] = first_value
-                logging.warning(f"Used first dictionary value for attribute {attr_code}: {first_value}")
-                return attr_result
-        
-        if attr_type in ("text", "string", "textarea") and "values" in epic_attr:
-            if suggested_value:
-                match = self._try_find_in_dictionary(epic_attr, suggested_value)
-                if match:
-                    code, text, score = match
-                    attr_result["valuecode"] = code
-                    attr_result["value"] = text
-                    filled_values[attr_code] = text
-                    logging.info(f"Text value found in dictionary: {text} (score: {score:.3f})")
-                    return attr_result
-            
-            if suggested_value:
-                attr_result["value"] = suggested_value
-                filled_values[attr_code] = suggested_value
-                logging.warning(f"Used suggested value for text attribute {attr_code}: {suggested_value}")
-                return attr_result
-        
-        if attr_type in ("float", "integer") and "values" in epic_attr:
-            if suggested_value:
-                match = self._try_find_in_dictionary(epic_attr, suggested_value)
-                if match:
-                    code, text, score = match
-                    attr_result["valuecode"] = code
-                    attr_result["value"] = text
-                    filled_values[attr_code] = text
-                    logging.info(f"Numeric value found in dictionary: {text} (score: {score:.3f})")
-                    return attr_result
-            
-            if suggested_value:
-                normalized_value = self.unit_converter.normalize_numeric_value(
-                    suggested_value, attr_type, attr_name
-                )
-                if normalized_value is not None:
-                    attr_result["value"] = str(normalized_value)
-                    filled_values[attr_code] = str(normalized_value)
-                    logging.warning(f"Used normalized value for numeric attribute {attr_code}: {normalized_value}")
-                    return attr_result
-        
-        if suggested_value:
-            attr_result["value"] = suggested_value
-            filled_values[attr_code] = suggested_value
-            logging.warning(f"Used suggested default value for attribute {attr_code}: {suggested_value}")
-            return attr_result
-        
-        if attr_type in ("select", "multiselect") and "values" in epic_attr:
-            values_dict = epic_attr.get("values", {})
-            if values_dict:
-                first_code = list(values_dict.keys())[0]
-                first_value = values_dict[first_code]
-                attr_result["valuecode"] = first_code
-                attr_result["value"] = first_value
-                filled_values[attr_code] = first_value
-                logging.warning(f"Used first dictionary value (final fallback) for attribute {attr_code}: {first_value}")
-                return attr_result
-        
-        if attr_type in ("text", "string", "textarea"):
-            default_value = "Не вказано"
-            attr_result["value"] = default_value
-            filled_values[attr_code] = default_value
-            logging.warning(f"Used default value for text attribute {attr_code}: {default_value}")
-            return attr_result
-        elif attr_type in ("float", "integer"):
-            default_value = "0"
-            attr_result["value"] = default_value
-            filled_values[attr_code] = default_value
-            logging.warning(f"Used default value for numeric attribute {attr_code}: {default_value}")
-            return attr_result
-        
-        logging.error(f"Failed to fill required attribute {attr_code} ({attr_name}, type: {attr_type}); returning an empty attribute")
+        logging.warning(
+            f"Required attribute {attr_code} ({attr_name}, type: {attr_type}) is unresolved; "
+            "manual review is required"
+        )
         return attr_result
     
     def _fill_brand_attribute(self,
@@ -608,14 +497,13 @@ class AttributesFiller:
                     attr_result["value"] = text
             
             if not attr_result.get("valuecode"):
-                best_match = self.value_matcher.find_best_match(suggested_brand, values_dict)
-                if best_match:
-                    code, text, score = best_match
-                    attr_result["valuecode"] = code
-                    attr_result["value"] = text
-                    logging.warning(f"Used best_match for brand: {text} (code: {code}, score: {score:.3f})")
+                logging.warning(
+                    f"Brand '{suggested_brand}' could not be matched with sufficient confidence"
+                )
+                return None
         else:
-            logging.warning(f"Brand '{suggested_brand}' is not in dictionary; using it without code")
+            logging.warning(f"Brand dictionary is unavailable; '{suggested_brand}' remains unresolved")
+            return None
         
         filled_values["brand"] = attr_result["value"]
         return attr_result
@@ -665,22 +553,12 @@ class AttributesFiller:
                         attr_result["value"] = text
                         logging.info(f"Found country code in attribute dictionary (semantic search): {country_value} -> {code} (score: {score:.3f})")
                 
-                if not attr_result.get("valuecode"):
-                    best_match = self.value_matcher.find_best_match(country_value, values_dict)
-                    if best_match:
-                        code, text, score = best_match
-                        attr_result["valuecode"] = code
-                        attr_result["value"] = text
-                        logging.warning(f"Used best-matching country value from attribute dictionary: {country_value} -> {code} (score: {score:.3f})")
             else:
                 logging.warning(f"Could not find country code for '{country_value}' - attribute dictionary is empty")
         
         if not attr_result.get("valuecode"):
-            if country_name_normalized in ["китай", "china"]:
-                attr_result["valuecode"] = "chn"
-                logging.warning(f"Used fallback country code 'chn' for: {country_value}")
-            else:
-                logging.error(f"CRITICAL: Could not find country code for '{country_value}' in country_of_origin.json or attribute dictionary")
+            logging.error(f"CRITICAL: Could not find country code for '{country_value}' in country_of_origin.json or attribute dictionary")
+            return None
         
         filled_values["country_of_origin"] = attr_result["value"]
         return attr_result

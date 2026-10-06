@@ -152,6 +152,26 @@ IMPORTANT:
                 
                 response_text = response.choices[0].message.content
                 result = self._parse_llm_response(response_text)
+
+                if not result['rejected']:
+                    candidates_by_id = {
+                        str(category_id): (category_id, category_name)
+                        for category_id, category_name, _ in candidates
+                    }
+                    selected = candidates_by_id.get(str(result.get('selected_category_id')))
+                    if not selected:
+                        logging.warning(
+                            "LLM selected a category ID that was not present in the candidate list"
+                        )
+                        result = {
+                            "reasoning": "Selected category was not in the candidate list",
+                            "selected_category_id": None,
+                            "selected_category_name": None,
+                            "confidence": 0,
+                            "rejected": True
+                        }
+                    else:
+                        result['selected_category_id'], result['selected_category_name'] = selected
                 
                 logging.info(
                     f"LLM selection done. Rejected: {result['rejected']}, "

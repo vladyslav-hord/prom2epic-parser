@@ -116,10 +116,41 @@ class ProductProcessor:
                         logging.error(f"CRITICAL: Country was not filled for product {normalized_data.get('id', 'unknown')}")
                     elif not country_attr.get("valuecode"):
                         logging.warning(f"Country is filled ({country_attr.get('value')}), but code is missing for product {normalized_data.get('id', 'unknown')}")
+
+                    unresolved_required = [
+                        attr.get("paramcode", "")
+                        for attr in epic_attributes
+                        if attr.get("is_required") and (
+                            not attr.get("value")
+                            or (attr.get("type") in ("select", "multiselect")
+                                and not attr.get("valuecode"))
+                        )
+                    ]
+                    if (not brand_attr or not brand_attr.get("value") or not brand_attr.get("valuecode")):
+                        unresolved_required.append("brand")
+                    if (not country_attr or not country_attr.get("value") or not country_attr.get("valuecode")):
+                        unresolved_required.append("country_of_origin")
+
+                    unresolved_required = sorted(set(filter(None, unresolved_required)))
+                    if unresolved_required:
+                        reason = (
+                            "Required attributes unresolved; manual review required: "
+                            + ", ".join(unresolved_required)
+                        )
+                        self.rejected_manager.add_rejected(normalized_data, reason=reason)
+                        self.rejected_manager.save()
+                        return {
+                            **normalized_data,
+                            "classification": classification_result,
+                            "epic_attributes": epic_attributes,
+                            "rejected": True,
+                            "manual_review": True,
+                            "unresolved_attributes": unresolved_required
+                        }
                     
                 except Exception as e:
                     logging.error(f"Attribute processing failed for product {normalized_data.get('id', 'unknown')}: {e}", exc_info=True)
-                    epic_attributes = []
+                    raise
         
         result = {
             **normalized_data,

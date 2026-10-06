@@ -114,13 +114,15 @@ class ValueMatcher:
     
     def find_best_match(self,
                        value_text: str,
-                       values_dict: Dict[str, str]) -> Optional[Tuple[str, str, float]]:
+                       values_dict: Dict[str, str],
+                       threshold: float = 0.9) -> Optional[Tuple[str, str, float]]:
         """
-        Ищет наиболее подходящее значение (fallback, без порога).
+        Ищет наиболее подходящее значение с минимальным порогом сходства.
         
         Args:
             value_text: Текстовое значение для поиска
             values_dict: Словарь {option_code: value_text}
+            threshold: Минимальный порог сходства
             
         Returns:
             Кортеж (option_code, value_text, similarity_score) или None
@@ -147,6 +149,13 @@ class ValueMatcher:
         best_code = value_codes[max_idx]
         best_text = value_texts[max_idx]
         
+        if max_score < threshold:
+            logging.info(
+                f"Лучшее значение отклонено: {value_text} -> {best_code} "
+                f"(score: {max_score:.3f}, threshold: {threshold:.3f})"
+            )
+            return None
+
         logging.info(f"Найдено наиболее подходящее значение: {value_text} -> {best_code} (score: {max_score:.3f})")
         return (best_code, best_text, max_score)
     

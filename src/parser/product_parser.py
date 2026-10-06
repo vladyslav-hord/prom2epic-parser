@@ -18,6 +18,7 @@ class ProductData:
         self.description_ua: str = ""
         self.price: str = ""
         self.price_old: str = ""
+        self.available: bool = False
         self.url: str = ""
         self.vendor: str = ""
         self.country_of_origin: str = ""
@@ -36,6 +37,7 @@ class ProductData:
             "description_ua": self.description_ua,
             "price": self.price,
             "price_old": self.price_old,
+            "available": self.available,
             "url": self.url,
             "vendor": self.vendor,
             "country_of_origin": self.country_of_origin,
@@ -77,7 +79,7 @@ class PromXMLParser:
     
     def get_total_offers_count(self) -> int:
         """
-        Count total number of products in XML file.
+        Count available products in the XML file.
         
         Returns:
             int: Product count.
@@ -86,7 +88,8 @@ class PromXMLParser:
         try:
             for event, elem in ET.iterparse(self.xml_file_path, events=('end',)):
                 if elem.tag == 'offer':
-                    count += 1
+                    if elem.get('available') == 'true':
+                        count += 1
                     elem.clear()
         except ET.ParseError as e:
             raise ValueError(f"XML parsing error while counting products: {e}")
@@ -147,6 +150,7 @@ class PromXMLParser:
             return None
         
         product = ProductData()
+        product.available = True
         
         product.id = offer_elem.get('id', '')
         
